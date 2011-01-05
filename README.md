@@ -2,7 +2,7 @@
 
 I wanted to display a user's full name in an [Sencha Touch Select](http://dev.sencha.com/deploy/touch/docs/?class=Ext.form.Select) control.  I figured this would be as easy as defining a template for the control.
 
-    #!javascript
+    // this doesn't work
     {
         xtype: 'selectfield',
         label: 'Name',
@@ -14,7 +14,6 @@ Unfortunately, that didn't work.
 
 Next I decided to create a fullName() function my model.
 
-    #!javascript
     Ext.regModel('Person', {
         fields: [
             {name: 'id', type: 'int'},
@@ -30,7 +29,6 @@ The function worked great, but not in the Select control.  Select#displayField e
 
 I needed to create a virtual field in the model.  I couldn't find any documentation for this, but Rich Waters offered a solution via the Sencha Touch Forums.
 
-    #!javascript
     Ext.regModel('Person', {
         fields: [
             {name: 'id', type: 'int'},
@@ -46,7 +44,6 @@ I needed to create a virtual field in the model.  I couldn't find any documentat
 
 Once the virtual model field was created, I could use it in the select control.
 
-    #!javascript
     {
         xtype: 'selectfield',
         label: 'Name',
