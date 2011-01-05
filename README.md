@@ -1,11 +1,12 @@
 # Virtual Fields in Sencha Models
 
-I wanted to display a user's full name in an [Sencha Touch Select](http://dev.sencha.com/deploy/touch/docs/?class=Ext.form.Select) control.  I figured this would be as easy as defining a template for the control.
+I wanted to display a user's full name in a [Sencha Touch Select](http://dev.sencha.com/deploy/touch/docs/?class=Ext.form.Select) control.  I figured this would be as easy as defining a template for the control.
 
     // this doesn't work
     {
         xtype: 'selectfield',
         label: 'Name',
+        store: store,
         valueField: 'id',
         tpl: '{firstName} {lastName}'
     }
@@ -47,6 +48,7 @@ Once the virtual model field was created, I could use it in the select control.
     {
         xtype: 'selectfield',
         label: 'Name',
+        store: store,
         valueField: 'id',
         displayField: 'fullName'
     }
